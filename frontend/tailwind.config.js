@@ -1,0 +1,85 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        mineral: {
+          950: '#0a0d0c',
+          900: '#0e1311',
+          850: '#131916',
+          800: '#18211d',
+          700: '#222d28',
+          600: '#2e3d36',
+          500: '#41544b',
+          400: '#627a6f',
+          300: '#8ba497',
+          200: '#b8c9c0',
+          100: '#dce5e0',
+          50: '#f2f6f4',
+        },
+        forest: {
+          900: '#0c2217',
+          800: '#143524',
+          700: '#1b4731',
+          600: '#245f42',
+          500: '#2f7a55',
+          400: '#409c6f',
+          300: '#61bd8f',
+          200: '#94d9b4',
+          100: '#cbeef7',
+          50: '#eefaf3',
+        },
+        parchment: {
+          900: '#1c1b18',
+          800: '#33312c',
+          700: '#545048',
+          600: '#7c766b',
+          500: '#a39c8e',
+          400: '#c5bfb3',
+          300: '#dfdad0',
+          200: '#ede9e1',
+          100: '#f5f3ee',
+          50: '#faf9f6',
+        },
+        ochre: {
+          900: '#451a03',
+          800: '#78350f',
+          700: '#92400e',
+          600: '#b45309',
+          500: '#d97706',
+          400: '#f59e0b',
+          300: '#fcd34d',
+          200: '#fde68a',
+          100: '#fef3c7',
+        },
+        crimson: {
+          900: '#4c0519',
+          800: '#881337',
+          700: '#9f1239',
+          600: '#be123c',
+          500: '#e11d48',
+          400: '#fb7185',
+        }
+      },
+      fontFamily: {
+        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Public Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'Menlo', 'monospace'],
+      },
+      borderRadius: {
+        'none': '0',
+        'sm': '4px',
+        DEFAULT: '6px',
+        'md': '8px',
+        'lg': '10px',
+        'xl': '12px',
+        '2xl': '16px',
+      }
+    },
+  },
+  plugins: [],
+}

@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ecoaudit-backend
+  datasource:
+    url: ${DATABASE_URL:jdbc:h2:mem:ecoaudit_dev;DB_CLOSE_DELAY=-1}
+    driver-class-name: ${DATABASE_DRIVER:org.h2.Driver}
+    username: ${DATABASE_USER:sa}
+    password: ${DATABASE_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+logging:
+  level:
+    org.hibernate.tool.schema: DEBUG
+
+# Forensic Detector Engine Prototype Configuration
+ecoaudit:
+  ml-service:
+    url: ${ML_SERVICE_URL:http://localhost:8000}
+    timeout-ms: 10000
+  scoring:
+    weights:
+      isolation-forest: 0.40
+      biological-kinetics: 0.30
+      power-correlation: 0.30
+    thresholds:
+      low: 30.0
+      moderate: 60.0
+      high: 80.0

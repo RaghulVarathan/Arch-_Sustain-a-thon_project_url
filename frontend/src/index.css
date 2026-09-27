@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0a0d0c;
+    color: #dce5e0;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    background-image: radial-gradient(rgba(46, 61, 54, 0.15) 1px, transparent 0);
+    background-size: 24px 24px;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-feature-settings: "liga", "dlig", "calt";
+    letter-spacing: -0.022em;
+    line-height: 1.15;
+  }
+}
+
+/* Bespoke Editorial Card Panels */
+.editorial-card {
+  background-color: #111714;
+  border: 1px solid #1f2a24;
+  border-radius: 10px;
+}
+
+.editorial-card-interactive {
+  background-color: #111714;
+  border: 1px solid #1f2a24;
+  border-radius: 10px;
+  transition: border-color 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card-interactive:hover {
+  background-color: #141c18;
+  border-color: #2e3d36;
+  transform: translateY(-1px);
+}
+
+.editorial-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+/* Subtle Hairline Data Divider */
+.hairline-divider {
+  border-color: #1f2a24;
+}
+
+/* Custom Precision Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0e1311;
+}
+::-webkit-scrollbar-thumb {
+  background: #222d28;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2f3e37;
+}
+
+/* Infinite Marquee Keyframes */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+/* Underline Draw Hover Animation */
+.nav-link-animated {
+  position: relative;
+}
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #3ea876;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link-animated:hover::after {
+  transform: scaleX(1);
+}
+
+/* Button Fill Sweep Effect */
+.btn-sweep {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn-sweep::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #28734c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+.btn-sweep:hover::before {
+  transform: scaleX(1);
+}
+
+/* ==========================================================
+   EMERGENCY IMPACT BANNER ANIMATIONS & EFFECTS
+   ========================================================== */
+
+/* 1. Emergency Border & Box Shadow Pulse */
+@keyframes emergency-pulse {
+  0%, 100% {
+    border-color: rgba(244, 63, 94, 0.4);
+    box-shadow: 0 0 25px -5px rgba(225, 29, 72, 0.35), inset 0 0 15px rgba(225, 29, 72, 0.15);
+  }
+  50% {
+    border-color: rgba(244, 63, 94, 0.95);
+    box-shadow: 0 0 45px 5px rgba(225, 29, 72, 0.7), inset 0 0 25px rgba(225, 29, 72, 0.3);
+  }
+}
+
+.animate-emergency-border {
+  animation: emergency-pulse 2s ease-in-out infinite;
+}
+
+/* 2. Emergency Beacon Strobe / Blink */
+@keyframes beacon-blink {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(244, 63, 94, 0.9));
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 2px rgba(244, 63, 94, 0.2));
+    transform: scale(0.96);
+  }
+}
+
+.animate-beacon {
+  animation: beacon-blink 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 3. Fast Blinking Emergency Live Dot */
+@keyframes fast-blink {
+  0%, 100% { opacity: 1; transform: scale(1.1); }
+  50% { opacity: 0.15; transform: scale(0.85); }
+}
+
+.animate-fast-blink {
+  animation: fast-blink 0.8s ease-in-out infinite;
+}
+
+/* 4. Radar Sweep Ambient Wave */
+@keyframes radar-scan {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%) skewX(-15deg); }
+}
+
+.animate-radar-scan {
+  animation: radar-scan 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* 5. Emergency Gradient Hue Shift */
+@keyframes emergency-bg-glow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-emergency-gradient {
+  background-size: 200% 200%;
+  animation: emergency-bg-glow 6s ease infinite;
+}
+
